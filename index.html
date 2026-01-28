@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>🇰🇷 Lydia一家的首爾小旅行</title>
+    <title>🌸 Lydia 與小夥伴：首爾櫻花冒險 7日遊</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
@@ -14,35 +14,35 @@
                     colors: {
                         'kr-blue': '#0047A0', 
                         'kr-red': '#CD2E3A',  
-                        'kr-soft': '#F8FAFC',
-                        'kr-accent': '#FF6B6B' 
+                        'sakura': '#FFB7C5',
+                        'kr-soft': '#F8FAFC'
                     }
                 }
             }
         }
     </script>
     <style>
-        body { background-color: #f1f5f9; font-family: 'Noto Sans TC', sans-serif; -webkit-tap-highlight-color: transparent; }
+        body { background-color: #f8fafc; font-family: 'Noto Sans TC', sans-serif; -webkit-tap-highlight-color: transparent; }
         .app-container { max-width: 480px; margin: 0 auto; background-color: #ffffff; min-height: 100vh; position: relative; padding-bottom: 80px;}
         .glass-nav { background: rgba(255, 255, 255, 0.9); backdrop-filter: blur(10px); border-top: 1px solid rgba(0,0,0,0.05); }
-        input[type="checkbox"]:checked + span { text-decoration: line-through; opacity: 0.5; }
+        .sakura-bg { background-image: radial-gradient(#fff 20%, transparent 20%), radial-gradient(#fff 20%, transparent 20%); background-color: #fff5f7; background-position: 0 0, 10px 10px; background-size: 20px 20px; }
     </style>
 </head>
 <body class="text-slate-800 antialiased">
 
 <div class="app-container" id="app">
-    <header class="sticky top-0 z-50 bg-white/95 backdrop-blur shadow-sm px-4 py-3 flex justify-between items-center border-b border-slate-100">
+    <header class="sticky top-0 z-50 bg-white/95 backdrop-blur shadow-sm px-4 py-3 flex justify-between items-center border-b border-pink-100">
         <div class="flex-1">
             <h1 class="text-md font-bold tracking-tight text-kr-blue leading-tight">
-                🇰🇷 Lydia 與她的夥伴們：首爾冒險 ✈️
+                🌸 Lydia 與夥伴們：首爾賞櫻之旅
             </h1>
-            <p class="text-[10px] text-slate-500 font-medium tracking-tighter mt-0.5">
-                👩‍👧 2026 春季 | 母女自由行 | 住：忠武路 G3
+            <p class="text-[10px] text-pink-500 font-medium tracking-tighter mt-0.5">
+                📅 2026.04.01 - 04.07 | 7天6夜精華版
             </p>
         </div>
         <div class="text-right ml-2">
-            <div class="text-[10px] font-medium bg-red-50 text-kr-red px-2 py-1 rounded-full whitespace-nowrap">
-                <i class="fas fa-plane mr-1"></i> <span>酷航去 / 長榮回</span>
+            <div class="text-[10px] font-medium bg-pink-50 text-pink-600 px-2 py-1 rounded-full whitespace-nowrap border border-pink-200">
+                <i class="fas fa-certificate mr-1"></i> <span>櫻花盛開期</span>
             </div>
         </div>
     </header>
@@ -51,17 +51,17 @@
 
     <nav class="fixed bottom-0 left-0 right-0 z-50 glass-nav max-w-[480px] mx-auto pb-safe shadow-lg">
         <div class="flex justify-around items-center h-16">
-            <button onclick="renderItinerary()" class="nav-btn flex flex-col items-center justify-center w-1/4 h-full text-kr-blue font-bold">
-                <i class="fas fa-map-marked-alt text-lg mb-1"></i><span class="text-[9px]">每日行程</span>
+            <button onclick="renderItinerary()" class="nav-btn flex flex-col items-center justify-center w-1/4 h-full text-pink-500 font-bold">
+                <i class="fas fa-calendar-alt text-lg mb-1"></i><span class="text-[9px]">櫻花日程</span>
             </button>
             <button onclick="renderInfo()" class="nav-btn flex flex-col items-center justify-center w-1/4 h-full text-gray-400">
-                <i class="fas fa-hotel text-lg mb-1"></i><span class="text-[9px]">住宿交通</span>
+                <i class="fas fa-map-pin text-lg mb-1"></i><span class="text-[9px]">交通住宿</span>
             </button>
             <button onclick="renderGuide()" class="nav-btn flex flex-col items-center justify-center w-1/4 h-full text-gray-400">
-                <i class="fas fa-lightbulb text-lg mb-1"></i><span class="text-[9px]">必備攻略</span>
+                <i class="fas fa-camera-retro text-lg mb-1"></i><span class="text-[9px]">賞櫻攻略</span>
             </button>
             <button onclick="renderLuggage()" class="nav-btn flex flex-col items-center justify-center w-1/4 h-full text-gray-400">
-                <i class="fas fa-check-square text-lg mb-1"></i><span class="text-[9px]">清點裝備</span>
+                <i class="fas fa-shopping-bag text-lg mb-1"></i><span class="text-[9px]">行前清單</span>
             </button>
         </div>
     </nav>
@@ -71,77 +71,85 @@
     const tripData = {
         days: [
             {
-                date: "Day 1", loc: "桃園 ➔ 仁川 ➔ 忠武路", weather: "晚間 8°C",
+                date: "04/01 (三)", loc: "桃園 ➔ 仁川 ➔ 忠武路",
                 events: [
-                    { time: "16:00", type: "flight", title: "桃園機場第一航廈", desc: "酷航 TR898 櫃台集合，準備飛往首爾。", nav: "桃園機場第一航廈" },
-                    { time: "21:45", type: "flight", title: "抵達仁川國際機場 (ICN)", desc: "辦理入境並領取行李，購買/儲值 T-Money 卡。", nav: "仁川國際機場" },
-                    { time: "23:00", type: "transport", title: "搭乘機場巴士或機場快線", desc: "深夜建議搭乘機場巴士 6015 或預約包車直達飯店。", nav: "忠武路站" },
-                    { time: "24:30", type: "hotel", title: "入住 G3 Hotel Chungmuro", desc: "辦理入住，飯店旁有便利商店可買消夜補充能量。", nav: "G3 Hotel Chungmuro" }
+                    { time: "18:10", type: "flight", title: "桃園機場起飛 (酷航)", desc: "TR898 航班，預計 21:45 抵達仁川。", nav: "桃園機場" },
+                    { time: "23:00", type: "transport", title: "深夜往市區交通", desc: "搭乘機場巴士 6015 (最末班約 23:15) 或預約包車直達飯店。", nav: "G3 Hotel Chungmuro" },
+                    { time: "24:30", type: "hotel", title: "入住 G3 Hotel Chungmuro", desc: "飯店位在忠武路站 6 號出口，深夜入住建議先在機場買好簡單宵夜。", nav: "G3 Hotel Chungmuro" }
                 ]
             },
             {
-                date: "Day 2", loc: "古文明與時尚的交界", weather: "多雲 12°C",
+                date: "04/02 (四)", loc: "古宮韓服與櫻花隧道",
                 events: [
-                    { time: "10:30", type: "spot", title: "景福宮：韓服體驗", desc: "穿上美美的韓服在古宮散步，女兒拍美照必排！", nav: "景福宮" },
-                    { time: "13:00", type: "food", title: "土俗村參雞湯", desc: "滋補又好喝的人氣參雞湯，就在景福宮附近。", nav: "土俗村參雞湯" },
-                    { time: "15:00", type: "spot", title: "北村韓屋村 ➔ 三清洞", desc: "漫步傳統韓屋巷弄，找間漂亮的韓屋咖啡廳坐坐。", nav: "北村韓屋村" },
-                    { time: "18:30", type: "shop", title: "明洞商圈購物", desc: "從飯店散步或搭一站地鐵即達。換錢、買化妝品、吃路邊攤。", nav: "明洞" }
+                    { time: "10:30", type: "spot", title: "景福宮：櫻花下穿韓服", desc: "春天宮殿裡的櫻花特別美。建議租借「公主韓服」。", nav: "景福宮" },
+                    { time: "13:00", type: "food", title: "三清洞 摩西年糕鍋", desc: "平價好吃的年糕鍋，母女同享最合適。", nav: "摩西年糕" },
+                    { time: "15:00", type: "spot", title: "北村韓屋村 ➔ 益善洞", desc: "益善洞老屋改建的文青巷弄，有許多漂亮的咖啡廳。", nav: "益善洞" },
+                    { time: "19:00", type: "shop", title: "明洞換錢 & 購物", desc: "換錢順便體驗明洞夜市小吃。回飯店可步行或搭一站地鐵。", nav: "明洞" }
                 ]
             },
             {
-                date: "Day 3", loc: "首爾文青與絕美夜景", weather: "晴 10°C",
+                date: "04/03 (五)", loc: "聖水洞潮流與賞櫻名所",
                 events: [
-                    { time: "11:00", type: "spot", title: "聖水洞散策", desc: "首爾現在最紅的地方！Dior 概念店拍照、咖啡廳巡禮。", nav: "聖水洞" },
-                    { time: "14:00", type: "shop", title: "漢南洞 / 梨泰院", desc: "許多獨立設計師品牌，非常適合母女一起逛。", nav: "漢南洞" },
-                    { time: "17:30", type: "spot", title: "南山首爾塔", desc: "搭乘南山纜車看夕陽與首爾夜景，浪漫度滿分。", nav: "N首爾塔" },
-                    { time: "20:00", type: "food", title: "王妃家烤肉", desc: "來到韓國一定要吃一頓美味的高級韓式烤肉。", nav: "明洞 王妃家" }
+                    { time: "11:00", type: "spot", title: "首爾林 (Seoul Forest)", desc: "首爾賞櫻大點！這裡的櫻花步道非常壯觀。", nav: "首爾林" },
+                    { time: "14:00", type: "spot", title: "聖水洞商圈", desc: "Dior 旗艦店拍照、逛 TAMBURINS 聖水。午餐推薦聖水馬鈴薯排骨湯。", nav: "聖水洞" },
+                    { time: "17:30", type: "spot", title: "南山首爾塔", desc: "搭乘纜車上山，沿途可見整山的粉櫻風景。", nav: "N首爾塔" }
                 ]
             },
             {
-                date: "Day 4", loc: "現代首爾與百貨購物", weather: "晴 11°C",
+                date: "04/04 (六)", loc: "浪漫汝矣島與現代百貨",
                 events: [
-                    { time: "11:00", type: "spot", title: "現代百貨 (The Hyundai Seoul)", desc: "汝矣島超吸睛室內森林百貨，美食街非常厲害。", nav: "The Hyundai Seoul" },
-                    { time: "15:00", type: "spot", title: "星空圖書館 (Starfield Library)", desc: "位於 COEX Mall 內的壯觀書牆，拍照聖地。", nav: "Starfield Library" },
-                    { time: "19:00", type: "shop", title: "東大門 DDP ➔ 現代 City Outlets", desc: "看 DDP 建築，逛 Outlets，順便吃炸雞！", nav: "東大門設計廣場" }
+                    { time: "10:30", type: "spot", title: "汝矣島輪中路櫻花隧道", desc: "首爾最具代表性的櫻花季景點。人多建議早點出發。", nav: "汝矣島 櫻花" },
+                    { time: "13:30", type: "shop", title: "The Hyundai Seoul", desc: "全首爾最大百貨，室內森林與各類潮牌必逛。", nav: "The Hyundai Seoul" },
+                    { time: "18:00", type: "food", title: "漢江公園吃炸雞", desc: "體驗韓劇中的漢江泡麵與炸雞外送，欣賞漢江夜景。", nav: "汝矣島漢江公園" }
                 ]
             },
             {
-                date: "Day 5", loc: "最後衝刺 ➔ 溫暖的家", weather: "晴 13°C",
+                date: "04/05 (日)", loc: "江南時尚與石村湖櫻花",
                 events: [
-                    { time: "10:00", type: "shop", title: "樂天超市 (首爾站)", desc: "最後採買韓國零食、泡麵與海苔當伴手禮。", nav: "樂天超市首爾站店" },
-                    { time: "13:00", type: "food", title: "廣藏市場吃午餐", desc: "體驗道地市場文化：生拌牛肉、綠豆餅、麻藥飯捲。", nav: "廣藏市場" },
-                    { time: "16:00", type: "transport", title: "出發仁川機場", desc: "建議提前三小時抵達，長榮櫃台辦理登機。", nav: "仁川國際機場" },
-                    { time: "19:45", type: "flight", title: "帶著回憶回台灣", desc: "搭乘長榮 BR159，預計 21:25 抵達桃園。", nav: "桃園機場" }
+                    { time: "11:00", type: "spot", title: "石村湖 (Seokchon Lake)", desc: "樂天世界旁的環湖櫻花步道，美得像童話故事。", nav: "石村湖" },
+                    { time: "14:00", type: "spot", title: "星空圖書館 (Starfield Library)", desc: "位於 COEX Mall，壯觀的書牆拍照點。", nav: "Starfield Library" },
+                    { time: "16:30", type: "shop", title: "新沙洞林蔭大道", desc: "林蔭兩旁有許多質感服飾與彩妝店。", nav: "新沙洞" }
+                ]
+            },
+            {
+                date: "04/06 (一)", loc: "弘大校園 Vibe 與最後衝刺",
+                events: [
+                    { time: "11:30", type: "spot", title: "弘大商圈 / 延南洞", desc: "延南洞林蔭道有許多可愛的設計店舖，適合母女慢慢逛。", nav: "弘大" },
+                    { time: "15:30", type: "shop", title: "梨花女子大學", desc: "校園門口著名的梨花牆，以及附近的平價飾品店。", nav: "梨花女子大學" },
+                    { time: "19:00", type: "food", title: "東大門 炸雞 & 烤肉", desc: "最後一晚大餐，順便看 DDP 夜間建築光影。", nav: "東大門" }
+                ]
+            },
+            {
+                date: "04/07 (二)", loc: "樂天超市 ➔ 溫暖的家",
+                events: [
+                    { time: "10:30", type: "shop", title: "樂天超市 (首爾站)", desc: "最後採買零食伴手禮。超市可直接辦理退稅與裝箱。", nav: "樂天超市首爾站店" },
+                    { time: "13:30", type: "food", title: "廣藏市場", desc: "離飯店不遠，吃綠豆餅、生拌牛肉，感受傳統市場氛圍。", nav: "廣藏市場" },
+                    { time: "16:30", type: "transport", title: "出發仁川機場", desc: "建議提早三小時到機場。回程長榮航空在第二航廈。", nav: "仁川國際機場" },
+                    { time: "19:45", type: "flight", title: "飛往台北 (長榮 BR159)", desc: "帶著滿滿回憶與戰利品回家，預計 21:25 抵台。", nav: "桃園機場" }
                 ]
             }
         ],
         info: {
-            hotel: {
-                name: "G3 Hotel Chungmuro (首爾忠武路G3飯店)",
-                tel: "+82 2-2268-3000",
-                addr: "6, Toegye-ro 27-gil, Jung-gu, Seoul, South Korea",
-                transport: "地鐵 3、4 號線【忠武路站】6 號出口步行 1 分鐘。"
-            },
-            flight: "去程：酷航 (18:10-21:45) | 回程：長榮 (19:45-21:25)"
+            hotel: { name: "G3 Hotel Chungmuro (忠武路)", tel: "+82 2-2268-3000", addr: "首爾特別市中區退溪路27街6" },
+            flight: "✈️ 去：酷航 TR898 | ✈️ 回：長榮 BR159"
         },
         guide: {
             essentials: [
-                { title: "📱 導航必備", val: "韓國請使用 Naver Map 或 Kakao Map，Google Maps 在這不太準。" },
-                { title: "💳 付款方式", val: "建議辦理 WOWPASS (可當現金卡+交通卡)，路邊攤才需用少量韓元現金。" },
-                { title: "🔌 電壓轉接", val: "韓國為 220V 圓孔插座，需帶轉接頭。" },
-                { title: "🛍️ 退稅提醒", val: "在貼有 Tax Free 標誌的商店滿 3 萬韓元即可辦理退稅。" }
+                { title: "🌸 櫻花追蹤", val: "4/1-4/7 預估為盛開期，若天氣變熱櫻花會提早。記得關注即時情報。" },
+                { title: "🧥 穿衣建議", val: "早晚只有 5-8 度，中午可能到 18 度。建議洋蔥式穿法，要帶一件保暖外套。" },
+                { title: "📱 必備 App", val: "Naver Map (導航)、WOWPASS (付款/交通卡)、Papago (翻譯)。" }
             ]
         },
         luggage: [
-            { category: "重要文件", items: ["護照 (正本+影本)", "住宿憑證", "WOWPASS/T-Money 卡", "網卡/Wifi機"] },
-            { category: "穿搭建議", items: ["分層洋蔥式穿法", "好走路的平底鞋", "保濕乳液/面膜", "墨鏡 (拍照用)"] },
-            { category: "隨身用品", items: ["行動電源", "折疊雨傘", "空購物袋 (買伴手禮用)", "個人常用藥品"] }
+            { category: "必備", items: ["護照", "WOWPASS卡", "網卡", "圓頭轉接頭 (220V)"] },
+            { category: "藥物", items: ["感冒藥", "止痛藥", "腸胃藥", "休足時間 (逛街必備)"] },
+            { category: "雜物", items: ["空大摺疊袋 (裝戰利品)", "唇膏/乳液 (韓國春天很乾)", "自拍棒"] }
         ]
     };
 
     function updateNav(idx) {
         document.querySelectorAll('.nav-btn').forEach((btn, i) => {
-            btn.className = i === idx ? "nav-btn flex flex-col items-center justify-center w-1/4 h-full text-kr-blue font-bold" : "nav-btn flex flex-col items-center justify-center w-1/4 h-full text-gray-400";
+            btn.className = i === idx ? "nav-btn flex flex-col items-center justify-center w-1/4 h-full text-pink-500 font-bold" : "nav-btn flex flex-col items-center justify-center w-1/4 h-full text-gray-400";
         });
     }
 
@@ -149,22 +157,21 @@
         updateNav(0);
         const container = document.getElementById('main-content');
         container.innerHTML = tripData.days.map(day => `
-            <div class="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden mb-6">
-                <div class="bg-slate-50 px-4 py-2 border-b flex justify-between items-center">
-                    <h2 class="font-bold text-kr-blue">${day.date} | ${day.loc}</h2>
-                    <span class="text-[10px] bg-white border px-2 py-0.5 rounded text-slate-500">${day.weather}</span>
+            <div class="bg-white rounded-xl shadow-sm border border-pink-100 overflow-hidden mb-6">
+                <div class="bg-pink-50/50 px-4 py-2 border-b border-pink-100 flex justify-between items-center">
+                    <h2 class="font-bold text-slate-800">${day.date} | ${day.loc}</h2>
                 </div>
                 <div class="p-2">
                     ${day.events.map(e => `
-                        <div class="relative pl-6 py-3 border-l border-slate-100 ml-4">
-                            <div class="absolute -left-1.5 top-5 w-3 h-3 rounded-full bg-white border-2 border-kr-red"></div>
+                        <div class="relative pl-6 py-3 border-l border-pink-100 ml-4">
+                            <div class="absolute -left-1.5 top-5 w-3 h-3 rounded-full bg-white border-2 border-sakura"></div>
                             <div class="flex justify-between items-start text-sm">
                                 <div class="flex-1">
                                     <span class="text-[10px] text-slate-400 font-mono">${e.time}</span>
                                     <h3 class="font-bold block text-slate-800">${e.title}</h3>
                                     <p class="text-[11px] text-slate-500 mt-1">${e.desc}</p>
                                 </div>
-                                <a href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(e.nav)}" target="_blank" class="ml-2 p-2 text-kr-blue bg-blue-50 rounded-full"><i class="fas fa-location-arrow text-sm"></i></a>
+                                <a href="https://map.naver.com/" target="_blank" class="ml-2 p-2 text-pink-400 bg-pink-50 rounded-full"><i class="fas fa-location-dot text-sm"></i></a>
                             </div>
                         </div>
                     `).join('')}
@@ -179,71 +186,8 @@
         container.innerHTML = `
             <div class="space-y-6">
                 <div class="bg-white p-5 rounded-xl shadow-sm border border-slate-200">
-                    <h3 class="font-bold border-b pb-2 mb-4 text-kr-blue flex items-center">
-                        <i class="fas fa-hotel mr-2"></i> 住宿據點
-                    </h3>
-                    <div class="space-y-3 text-xs">
-                        <div class="font-bold text-sm text-slate-800">${tripData.info.hotel.name}</div>
-                        <div class="text-slate-500 leading-normal">${tripData.info.hotel.addr}</div>
-                        <div class="p-3 bg-slate-50 rounded-lg text-kr-blue font-medium">${tripData.info.hotel.transport}</div>
-                        <a href="tel:${tripData.info.hotel.tel}" class="inline-block text-kr-red underline font-mono mt-2">${tripData.info.hotel.tel}</a>
-                    </div>
-                </div>
-                <div class="bg-white p-5 rounded-xl shadow-sm border border-slate-200">
-                    <h3 class="font-bold border-b pb-2 mb-4 text-kr-blue flex items-center">
-                        <i class="fas fa-plane-departure mr-2"></i> 航班資訊
-                    </h3>
-                    <div class="text-xs font-mono py-2 bg-red-50 text-kr-red text-center rounded-lg">
-                        ${tripData.info.flight}
-                    </div>
-                </div>
-            </div>`;
-    }
-
-    function renderGuide() {
-        updateNav(2);
-        const container = document.getElementById('main-content');
-        container.innerHTML = `
-            <div class="space-y-4">
-                <div class="bg-white p-5 rounded-xl shadow-sm border border-slate-200">
-                    <h3 class="font-bold border-b pb-2 mb-4 text-kr-blue">首爾旅遊攻略</h3>
-                    ${tripData.guide.essentials.map(t => `
-                        <div class="mb-4">
-                            <div class="text-[11px] font-bold text-slate-700 flex items-center">
-                                <span class="w-1.5 h-1.5 bg-kr-accent rounded-full mr-2"></span>${t.title}
-                            </div>
-                            <div class="text-xs text-slate-500 mt-2 leading-relaxed ml-3.5">${t.val}</div>
-                        </div>
-                    `).join('')}
-                </div>
-            </div>`;
-    }
-
-    function renderLuggage() {
-        updateNav(3);
-        const container = document.getElementById('main-content');
-        container.innerHTML = `
-            <div class="space-y-4 text-xs">
-                ${tripData.luggage.map(cat => `
-                    <div class="bg-white p-5 rounded-xl shadow-sm border border-slate-200">
-                        <h3 class="font-bold border-b pb-2 mb-3 text-kr-blue text-sm">${cat.category}</h3>
-                        <div class="space-y-3">
-                            ${cat.items.map(item => `
-                                <label class="flex items-center space-x-3 cursor-pointer group">
-                                    <input type="checkbox" class="form-checkbox h-4 w-4 text-kr-blue rounded border-slate-300">
-                                    <span class="text-slate-600 group-hover:text-kr-blue transition-colors">${item}</span>
-                                </label>
-                            `).join('')}
-                        </div>
-                    </div>
-                `).join('')}
-                <div class="p-4 text-[10px] text-slate-400 text-center leading-relaxed">
-                    🇰🇷 Lydia 和小夥伴，盡情享受首爾吧！ 🇰🇷
-                </div>
-            </div>`;
-    }
-
-    document.addEventListener('DOMContentLoaded', renderItinerary);
-</script>
-</body>
-</html>
+                    <h3 class="font-bold border-b pb-2 mb-4 text-kr-blue flex items-center"><i class="fas fa-hotel mr-2"></i> 住宿據點</h3>
+                    <div class="text-xs">
+                        <div class="font-bold text-sm mb-1">${tripData.info.hotel.name}</div>
+                        <div class="text-slate-500 mb-2 leading-normal">${tripData.info.hotel.addr}</div>
+                        <div class="p-3
