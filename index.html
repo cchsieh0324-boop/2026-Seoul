@@ -190,4 +190,59 @@
                     <div class="text-xs">
                         <div class="font-bold text-sm mb-1">${tripData.info.hotel.name}</div>
                         <div class="text-slate-500 mb-2 leading-normal">${tripData.info.hotel.addr}</div>
-                        <div class="p-3
+                        <div class="p-3 bg-slate-50 rounded text-kr-blue mb-2">地鐵「忠武路站」6號出口上來即達。</div>
+                        <a href="tel:${tripData.info.hotel.tel}" class="text-blue-600 underline">${tripData.info.hotel.tel}</a>
+                    </div>
+                </div>
+                <div class="bg-white p-5 rounded-xl shadow-sm border border-slate-200">
+                    <h3 class="font-bold border-b pb-2 mb-4 text-kr-blue flex items-center"><i class="fas fa-plane mr-2"></i> 航班資訊</h3>
+                    <div class="text-xs font-mono space-y-2">
+                        <div class="bg-pink-50 p-2 rounded text-pink-700">${tripData.info.flight}</div>
+                        <p class="text-slate-400">去：桃園 T1 ➔ 仁川 T1 | 回：仁川 T2 ➔ 桃園 T2</p>
+                    </div>
+                </div>
+            </div>`;
+    }
+
+    function renderGuide() {
+        updateNav(2);
+        const container = document.getElementById('main-content');
+        container.innerHTML = `
+            <div class="space-y-4">
+                <div class="bg-white p-5 rounded-xl shadow-sm border border-pink-100 sakura-bg">
+                    <h3 class="font-bold border-b border-pink-200 pb-2 mb-4 text-pink-600">櫻花冒險必看</h3>
+                    ${tripData.guide.essentials.map(t => `
+                        <div class="mb-4">
+                            <div class="text-[11px] font-bold text-slate-700 underline decoration-sakura decoration-2 underline-offset-4">${t.title}</div>
+                            <div class="text-xs text-slate-500 mt-2 leading-relaxed">${t.val}</div>
+                        </div>
+                    `).join('')}
+                </div>
+            </div>`;
+    }
+
+    function renderLuggage() {
+        updateNav(3);
+        const container = document.getElementById('main-content');
+        container.innerHTML = `
+            <div class="space-y-4">
+                ${tripData.luggage.map(cat => `
+                    <div class="bg-white p-5 rounded-xl shadow-sm border border-slate-100">
+                        <h3 class="font-bold border-b pb-2 mb-3 text-kr-blue text-sm">${cat.category}</h3>
+                        <div class="space-y-3">
+                            ${cat.items.map(item => `
+                                <label class="flex items-center space-x-3 cursor-pointer group">
+                                    <input type="checkbox" class="form-checkbox h-4 w-4 text-pink-400 rounded border-gray-300">
+                                    <span class="text-xs text-slate-600">${item}</span>
+                                </label>
+                            `).join('')}
+                        </div>
+                    </div>
+                `).join('')}
+            </div>`;
+    }
+
+    document.addEventListener('DOMContentLoaded', renderItinerary);
+</script>
+</body>
+</html>
